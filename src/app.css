@@ -1,9 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
-
+@import "../src/components/style/FilePreviewModal.scss";
 :root {
   font-family: 'DM Sans', sans-serif;
-  color: #202334;
+  color: #42b6be;
   background: #f7f8fc;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,11 +21,11 @@ button:focus-visible, input:focus-visible { outline: 3px solid #b9a8ff; outline-
 
 .app-shell { min-height: 100vh; }
 .sidebar {
-  width: 252px; position: fixed; inset: 0 auto 0 0; z-index: 10;
-  display: flex; flex-direction: column; padding: 25px 17px 16px;
-  color: #d7daea; background: #17192b;
+  width: 250px; position: fixed; inset: 0 auto 0 0; z-index: 10;
+  display: flex; flex-direction: column; padding: 2px 20px 10px;
+  color: #d7daea; background: #0c0c0cec;
 }
-.brand { display: flex; align-items: center; gap: 10px; padding: 0 7px 31px; color: white; font: 700 21px 'Inter', sans-serif; letter-spacing: -0.8px; }
+.brand { display: flex; align-items: center; gap: 10px; padding: 0 7px 4px; color: white; font: 700 21px 'Inter', sans-serif; letter-spacing: -0.8px; }
 .brand-icon { width: 35px; height: 35px; display: grid; place-items: center; color: white; background: #7357f5; border-radius: 11px; }
 .brand-light { font-weight: 400; color: #b4b5c8; }
 .mobile-close { display: none; margin-left: auto; color: white; background: transparent; border: 0; }
@@ -122,6 +122,9 @@ h1 { margin: 0; color: #25273a; font: 700 clamp(22px,2.1vw,28px) 'Inter', sans-s
 .file-table td { padding: 12px 17px; border-bottom: 1px solid #f1f2f7; font-size: 11px; }
 .file-table tbody tr:last-child td { border-bottom: 0; }
 .file-name { display: flex; align-items: center; gap: 11px; color: #45475a; font-weight: 600; }
+.file-row-open { background: #f5f4ff; }
+.file-open-button { padding: 0; color: inherit; font: inherit; text-align: left; background: transparent; border: 0; cursor: pointer; }
+.file-open-button:hover { color: #4f46e5; text-decoration: underline; }
 .file-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 8px; }
 .file-icon.purple { color: #805ff0; background: #f1edff; }
 .file-icon.orange { color: #e6a34e; background: #fff4e6; }

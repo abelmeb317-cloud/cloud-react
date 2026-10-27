@@ -1,0 +1,85 @@
+
+$primary: #4f46e5;
+$primary-hover: #4338ca;
+$error: #dc2626;
+$error-text: #991b1b;
+$error-bg: #fef2f2;
+$error-border: #fecaca;
+
+.primary-button {
+  background: $primary;
+  box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2);
+
+  &:hover:not(:disabled) {
+    background: $primary-hover;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 3px;
+  }
+}
+
+.upload-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 360px;
+  padding: 12px 14px;
+  color: $error-text;
+  background: $error-bg;
+  border: 1px solid $error-border;
+  border-left: 4px solid $error;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  animation: error-appear 0.2s ease-out;
+
+  > svg {
+    flex-shrink: 0;
+    color: $error;
+  }
+
+  span {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.upload-error-dismiss {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 5px;
+  color: $error-text;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background: #fee2e2;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $error;
+    outline-offset: 2px;
+  }
+}
+
+@keyframes error-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

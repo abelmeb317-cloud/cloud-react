@@ -15,19 +15,29 @@ export function useFiles() {
 
     setUploading(true);
     setNotice("Uploading files to Supabase...");
+    const uploaded = [];
 
     try {
-      const uploaded = [];
-
       for (const file of selected) {
         uploaded.push(await uploadFile(file));
       }
 
       setFiles((current) => [...uploaded, ...current]);
       setNotice(`${uploaded.length} file(s) uploaded successfully!`);
+      return uploaded;
     } catch (error) {
       console.error("Upload failed:", error);
-      setNotice(`Upload failed: ${error.message}`);
+      const message =
+        error instanceof Error ? error.message : "An unexpected error occurred.";
+      setNotice(
+        uploaded.length
+          ? `${uploaded.length} file(s) uploaded; the remaining upload failed: ${message}`
+          : `Upload failed: ${message}`,
+      );
+      if (uploaded.length) {
+        setFiles((current) => [...uploaded, ...current]);
+      }
+      return uploaded;
     } finally {
       setUploading(false);
     }

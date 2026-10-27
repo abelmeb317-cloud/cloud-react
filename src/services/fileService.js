@@ -26,6 +26,7 @@ export async function uploadFile(file) {
     starred: false,
     trashed: false,
     storagePath,
+    sourceFile: file,
     demo: false,
   };
 }

@@ -12,6 +12,8 @@ export default function Dashboard({
   trashCount,
   uploading,
   onUpload,
+  openFileId,
+  onOpenFile,
   onNavigate,
   onToggleStar,
   onToggleTrash,
@@ -37,7 +39,11 @@ export default function Dashboard({
         </div>
 
         {activePage !== "Trash" && (
-          <UploadButton uploading={uploading} onUpload={onUpload} />
+          <UploadButton
+            uploading={uploading}
+            onUpload={onUpload}
+            onFileUploaded={onOpenFile}
+          />
         )}
       </div>
 
@@ -60,6 +66,8 @@ export default function Dashboard({
       <FileTable
         files={files}
         activePage={activePage}
+        openFileId={openFileId}
+        onOpenFile={onOpenFile}
         onToggleStar={onToggleStar}
         onToggleTrash={onToggleTrash}
         onDelete={onDelete}

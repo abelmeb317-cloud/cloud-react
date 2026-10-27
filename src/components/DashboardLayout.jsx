@@ -15,7 +15,7 @@ import {
   HardDrive,
 } from "lucide-react";
 import { navigation, pageTitles } from "../types/file";
-
+import "./style/DashboardLayout.scss";
 const icons = {
   "layout-dashboard": LayoutDashboard,
   files: Files,

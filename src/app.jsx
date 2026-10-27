@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DashboardLayout from "./components/DashboardLayout.jsx";
+import FilePreviewModal from "./components/FilePreviewModal.jsx";
 import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
 import { useFiles, useFilteredFiles } from "./hooks/useFiles";
@@ -8,6 +9,7 @@ import "./app.css";
 export default function App() {
   const [activePage, setActivePage] = useState("Overview");
   const [search, setSearch] = useState("");
+  const [openFile, setOpenFile] = useState(null);
 
   const {
     files,
@@ -58,12 +60,15 @@ export default function App() {
           trashCount={trashCount}
           uploading={uploading}
           onUpload={uploadFiles}
+          openFileId={openFile?.id}
+          onOpenFile={setOpenFile}
           onNavigate={changePage}
           onToggleStar={toggleStar}
           onToggleTrash={toggleTrash}
           onDelete={deletePermanently}
         />
       )}
+      <FilePreviewModal file={openFile} onClose={() => setOpenFile(null)} />
     </DashboardLayout>
   );
 }

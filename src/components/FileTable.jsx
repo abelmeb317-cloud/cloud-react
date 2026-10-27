@@ -3,6 +3,8 @@ import { Star, Trash2, Files } from "lucide-react";
 export default function FileTable({
   files,
   activePage,
+  openFileId,
+  onOpenFile,
   onToggleStar,
   onToggleTrash,
   onDelete,
@@ -46,13 +48,24 @@ export default function FileTable({
               const Icon = file.icon;
 
               return (
-                <tr key={file.id}>
+                <tr
+                  key={file.id}
+                  className={file.id === openFileId ? "file-row-open" : ""}
+                >
                   <td>
                     <div className="file-name">
                       <div className={`file-icon ${file.color}`}>
                         <Icon size={19} />
                       </div>
-                      <span>{file.name}</span>
+                      <button
+                        type="button"
+                        className="file-open-button"
+                        onClick={() => onOpenFile(file)}
+                        aria-label={`Open ${file.name}`}
+                        aria-current={file.id === openFileId ? "true" : undefined}
+                      >
+                        {file.name}
+                      </button>
                     </div>
                   </td>
 
